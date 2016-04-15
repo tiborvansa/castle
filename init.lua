@@ -15,7 +15,6 @@ minetest.register_node("castle:stonewall", {
 	paramtype = light,
 	drop = "castle:stonewall",
 	groups = {cracky=3},
-
 })
 
 minetest.register_node("castle:rubble", {
@@ -55,7 +54,7 @@ minetest.register_node("castle:stonewall_corner", {
 	paramtype2 = "facedir",
 	description = "Castle Corner",
 	tiles = {"castle_stonewall.png",
-	  "castle_stonewall.png",
+		"castle_stonewall.png",
 			"castle_corner_stonewall1.png",
 			"castle_stonewall.png",
 			"castle_stonewall.png",
@@ -81,7 +80,7 @@ minetest.register_node("castle:roofslate", {
 	climbable = true,
 	selection_box = {
 		type = "fixed",
-                fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
 	groups = {cracky=3,attached_node=1},
 })
@@ -103,29 +102,29 @@ minetest.register_node("castle:hides", {
 })
 
 minetest.register_craft( {
-         type = "shapeless",
-         output = "castle:hides 6",
-         recipe = { "wool:white" , "bucket:bucket_water" },
-         replacements = {
-             { 'bucket:bucket_water', 'bucket:bucket_empty' }
-         }
-} )
+	type = "shapeless",
+	output = "castle:hides 6",
+	recipe = { "wool:white" , "bucket:bucket_water" },
+	replacements = {
+		{ 'bucket:bucket_water', 'bucket:bucket_empty' }
+	}
+})
 
 local mod_building_blocks = minetest.get_modpath("building_blocks")
 local mod_streets = minetest.get_modpath("streets") or minetest.get_modpath("asphalt")
 
 if mod_building_blocks then
-	minetest.register_craft( {
-         output = "castle:roofslate 4",
-         recipe = {
+	minetest.register_craft({
+		output = "castle:roofslate 4",
+		recipe = {
 			{ "building_blocks:Tar" , "default:gravel" },
 			{ "default:gravel",       "building_blocks:Tar" }
 		}
 	})
 
 	minetest.register_craft( {
-         output = "castle:roofslate 4",
-         recipe = {
+		output = "castle:roofslate 4",
+		recipe = {
 			{ "default:gravel",       "building_blocks:Tar" },
 			{ "building_blocks:Tar" , "default:gravel" }
 		}
@@ -133,17 +132,17 @@ if mod_building_blocks then
 end
 
 if mod_streets then
-		minetest.register_craft( {
-         output = "castle:roofslate 4",
-         recipe = {
+	minetest.register_craft( {
+		output = "castle:roofslate 4",
+		recipe = {
 			{ "streets:asphalt" , "default:gravel" },
 			{ "default:gravel",   "streets:asphalt" }
 		}
 	})
 
 	minetest.register_craft( {
-         output = "castle:roofslate 4",
-         recipe = {
+		output = "castle:roofslate 4",
+		recipe = {
 			{ "default:gravel",   "streets:asphalt" },
 			{ "streets:asphalt" , "default:gravel" }
 		}
@@ -160,11 +159,11 @@ if not (mod_building_blocks or mod_streets) then
 end
 
 stairs.register_stair_and_slab("stonewall", "castle:stonewall",
-		{cracky=3},
-		{"castle_stonewall.png"},
-		"Castle Wall Stair",
-		"Castle Wall Slab",
-		default.node_sound_stone_defaults())
+	{cracky=3},
+	{"castle_stonewall.png"},
+	"Castle Wall Stair",
+	"Castle Wall Slab",
+	default.node_sound_stone_defaults())
 
 minetest.register_craft({
 	output = "castle:stairs 4",
@@ -192,32 +191,32 @@ minetest.register_craft({
 })
 
 doors.register("castle:oak_door", {
-		tiles = {{ name = "castle_door_oak.png", backface_culling = true }},
-		description = "Oak Door",
-		inventory_image = "castle_oak_door_inv.png",
-		protected = true,
-		groups = { choppy = 2, door = 1 },
-		sounds = default.node_sound_wood_defaults(),
-		recipe = {
-			{"default:tree", "default:tree"},
-			{"default:tree", "default:tree"},
-			{"default:tree", "default:tree"},
-		}
+	tiles = {{ name = "castle_door_oak.png", backface_culling = true }},
+	description = "Oak Door",
+	inventory_image = "castle_oak_door_inv.png",
+	protected = true,
+	groups = { choppy = 2, door = 1 },
+	sounds = default.node_sound_wood_defaults(),
+	recipe = {
+		{"default:tree", "default:tree"},
+		{"default:tree", "default:tree"},
+		{"default:tree", "default:tree"},
+	}
 })
 
 doors.register("castle:jail_door", {
-		tiles = {{ name = "castle_door_jail.png", backface_culling = true }},
-		description = "Jail Door",
-		inventory_image = "castle_jail_door_inv.png",
-		protected = true,
-		groups = { cracky = 2, door = 1},
-		sound_open = "doors_steel_door_open",
-		sound_close = "doors_steel_door_close",
-		recipe = {
-			{"castle:jailbars", "castle:jailbars"},
-			{"castle:jailbars", "castle:jailbars"},
-			{"castle:jailbars", "castle:jailbars"},
-		}
+	tiles = {{ name = "castle_door_jail.png", backface_culling = true }},
+	description = "Jail Door",
+	inventory_image = "castle_jail_door_inv.png",
+	protected = true,
+	groups = { cracky = 2, door = 1},
+	sound_open = "doors_steel_door_open",
+	sound_close = "doors_steel_door_close",
+	recipe = {
+		{"castle:jailbars", "castle:jailbars"},
+		{"castle:jailbars", "castle:jailbars"},
+		{"castle:jailbars", "castle:jailbars"},
+	}
 })
 
 function default.get_ironbound_chest_formspec(pos)
@@ -225,8 +224,8 @@ function default.get_ironbound_chest_formspec(pos)
 	local formspec =
 		"size[8,9]"..
 		default.gui_bg ..
-  default.gui_bg_img ..
-  default.gui_slots ..
+		default.gui_bg_img ..
+		default.gui_slots ..
 		"list[nodemeta:".. spos .. ";main;0,0;8,4;]"..
 		"list[current_player;main;0,5;8,4;]"
 	return formspec
@@ -243,7 +242,7 @@ minetest.register_node("castle:ironbound_chest",{
 	drawtype = "nodebox",
 	description = "Ironbound Chest",
 	tiles = {"castle_ironbound_chest_top.png",
-	                  "castle_ironbound_chest_top.png",
+			"castle_ironbound_chest_top.png",
 			"castle_ironbound_chest_side.png",
 			"castle_ironbound_chest_side.png",
 			"castle_ironbound_chest_back.png",
@@ -297,7 +296,7 @@ minetest.register_node("castle:ironbound_chest",{
 		end
 		return count
 	end,
-    allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
 		local meta = minetest.get_meta(pos)
 		if not has_ironbound_chest_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
@@ -308,7 +307,7 @@ minetest.register_node("castle:ironbound_chest",{
 		end
 		return stack:get_count()
 	end,
-    allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
 		local meta = minetest.get_meta(pos)
 		if not has_ironbound_chest_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
@@ -323,11 +322,11 @@ minetest.register_node("castle:ironbound_chest",{
 		minetest.log("action", player:get_player_name()..
 				" moves stuff in locked chest at "..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)
+	on_metadata_inventory_put = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
 				" moves stuff to locked chest at "..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_take = function(pos, listname, index, stack, player)
+	on_metadata_inventory_take = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
 				" takes stuff from locked chest at "..minetest.pos_to_string(pos))
 	end,
@@ -364,17 +363,17 @@ minetest.register_tool("castle:battleaxe", {
 		damage_groups = {fleshy=7},
 	},
 })
+
 minetest.register_craft({
 	output = "castle:battleaxe",
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot","default:steel_ingot"},
 		{"default:steel_ingot", "default:stick","default:steel_ingot"},
-                  {"", "default:stick",""}
+		{"", "default:stick",""}
 	}
 })
 
 if minetest.get_modpath("moreblocks") then
-
 	stairsplus:register_all("castle", "dungeon_stone", "castle:dungeon_stone", {
 		description = "Dungeon Stone",
 		tiles = {"castle_dungeon_stone.png"},
@@ -389,7 +388,7 @@ if minetest.get_modpath("moreblocks") then
 		groups = {cracky=1, not_in_creative_inventory=1},
 		sounds = default.node_sound_stone_defaults(),
 		sunlight_propagates = true,
-		})
+	})
 
 	stairsplus:register_all("castle", "stonewall", "castle:stonewall", {
 		description = "Stone Wall",
@@ -405,22 +404,22 @@ if minetest.get_modpath("moreblocks") then
 		groups = {cracky=1, not_in_creative_inventory=1},
 		sounds = default.node_sound_stone_defaults(),
 		sunlight_propagates = true,
-		})
-	end
+	})
+end
 
 stairs.register_stair_and_slab("dungeon_stone", "castle:dungeon_stone",
-		{cracky=3},
-		{"castle_dungeon_stone.png"},
-		"Dungeon Stone Stair",
-		"Dungeon Stone Slab",
-		default.node_sound_stone_defaults())
+	{cracky=3},
+	{"castle_dungeon_stone.png"},
+	"Dungeon Stone Stair",
+	"Dungeon Stone Slab",
+	default.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("castle_pavement_brick", "castle:pavement_brick",
-		{cracky=3},
-		{"castle_pavement_brick.png"},
-		"Castle Pavement Stair",
-		"Castle Pavement Slab",
-		default.node_sound_stone_defaults())
+	{cracky=3},
+	{"castle_pavement_brick.png"},
+	"Castle Pavement Stair",
+	"Castle Pavement Slab",
+	default.node_sound_stone_defaults())
 
 minetest.register_craft({
 	output = "stairs:slab_dungeon_stone 6",

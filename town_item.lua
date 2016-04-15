@@ -1,3 +1,4 @@
+
 minetest.register_alias("darkage:box",         "castle:crate")
 minetest.register_alias("cottages:straw",      "farming:straw")
 minetest.register_alias("castle:straw",        "farming:straw")
@@ -42,13 +43,13 @@ minetest.register_node("castle:workbench",{
 	paramtype = "light",
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2},
 	drawtype = "normal",
-    on_construct = function ( pos )
-        local meta = minetest.get_meta( pos )
-		meta:set_string( 'formspec',
-   			'size[10,10;]' ..
-			 default.gui_bg ..
-			 default.gui_bg_img ..
-			 default.gui_slots ..
+	on_construct = function ( pos )
+		local meta = minetest.get_meta( pos )
+			meta:set_string( 'formspec',
+			'size[10,10;]' ..
+			default.gui_bg ..
+			default.gui_bg_img ..
+			default.gui_slots ..
 			'label[1,0;Source Material]' ..
 			'list[context;src;1,1;2,4;]' ..
 			'label[4,0;Recipe to Use]' ..
@@ -56,12 +57,12 @@ minetest.register_node("castle:workbench",{
 			'label[7.5,0;Craft Output]' ..
 			'list[context;dst;8,1;1,4;]' ..
 			'list[current_player;main;1,6;8,4;]' )
-        meta:set_string( 'infotext', 'Workbench' )
-        local inv = meta:get_inventory()
-        inv:set_size( 'src', 2 * 4 )
+		meta:set_string( 'infotext', 'Workbench' )
+		local inv = meta:get_inventory()
+		inv:set_size( 'src', 2 * 4 )
 		inv:set_size( 'rec', 3 * 3 )
 		inv:set_size( 'dst', 1 * 4 )
-    end,
+	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
@@ -71,11 +72,11 @@ minetest.register_node("castle:workbench",{
 		minetest.log("action", player:get_player_name()..
 				" moves stuff in workbench at "..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)
+	on_metadata_inventory_put = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
 				" moves stuff to workbench at "..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_take = function(pos, listname, index, stack, player)
+	on_metadata_inventory_take = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
 				" takes stuff from workbench at "..minetest.pos_to_string(pos))
 	end,
@@ -88,7 +89,7 @@ local get_recipe = function ( inv )
 		method = 'normal',
 		width = 3,
 		items = needed
-	} )
+	})
 
 	local totalneed = {}
 
@@ -195,7 +196,6 @@ minetest.register_craft({
 	recipe = {
 		{"default:stonebrick"},
 		{"default:obsidian"},
-
 	}
 })
 
@@ -227,11 +227,11 @@ minetest.register_node("castle:crate", {
 		minetest.log("action", player:get_player_name()..
 				" moves stuff in crate at "..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)
+	on_metadata_inventory_put = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
 				" moves stuff to crate at "..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_take = function(pos, listname, index, stack, player)
+	on_metadata_inventory_take = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
 				" takes stuff from crate at "..minetest.pos_to_string(pos))
 	end,
@@ -283,7 +283,6 @@ minetest.register_craft({
 	}
 })
 
-
 minetest.register_node("castle:light",{
 	drawtype = "glasslike",
 	description = "Light Block",
@@ -302,5 +301,4 @@ minetest.register_craft({
 		{"default:stick", "default:glass", "default:stick"},
 	}
 })
-
 

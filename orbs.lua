@@ -4,7 +4,7 @@ minetest.register_craftitem("castle:orb_day", {
 	inventory_image = "castle_day.png",
 	wield_image = "castle_day.png",
 	on_use = function()
-			minetest.set_timeofday(0.5)
+		minetest.set_timeofday(0.5)
 	end,
 })
 
@@ -14,17 +14,17 @@ minetest.register_craftitem("castle:orb_night", {
 	inventory_image = "castle_night.png",
 	wield_image = "castle_night.png",
 	on_use = function()
-			minetest.set_timeofday(0)
+		minetest.set_timeofday(0)
 	end,
 })
 
 minetest.register_craft( {
-         output = "castle:orb_day",
-         recipe = { 
-         {"", "default:glass",""},
-         {"default:glass", "default:mese_crystal","default:glass"},
-         {"", "default:glass",""}
-         },
+	output = "castle:orb_day",
+	recipe = { 
+		{"", "default:glass",""},
+		{"default:glass", "default:mese_crystal","default:glass"},
+		{"", "default:glass",""}
+	},
 })
 
 minetest.register_craft({
@@ -32,6 +32,7 @@ minetest.register_craft({
 	recipe = {
 		{"", "default:glass",""},
 		{"default:glass", "default:obsidian","default:glass"},
-                  {"", "default:glass",""}
+		{"", "default:glass",""}
 	}
 })
+
