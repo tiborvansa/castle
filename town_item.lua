@@ -139,7 +139,7 @@ minetest.register_abm( {
 	action = function ( pos, node )
 		local meta = minetest.get_meta( pos )
 		local inv = meta:get_inventory()
-		local cresult, newinput, needed
+		local result, newinput, needed
 		if not inv:is_empty( 'src' ) then
 			-- Check for a valid recipe and sufficient resources to craft it
 			needed, newinput, result = get_recipe( inv )
@@ -302,3 +302,37 @@ minetest.register_craft({
 	}
 })
 
+if minetest.get_modpath("moreblocks") then
+	stairsplus:register_all("castle", "dungeon_stone", "castle:dungeon_stone", {
+		description = "Dungeon Stone",
+		tiles = {"castle_dungeon_stone.png"},
+		groups = {cracky=2, not_in_creative_inventory=1},
+		sounds = default.node_sound_stone_defaults(),
+		sunlight_propagates = true,
+	})
+
+	stairsplus:register_all("castle", "pavement_brick", "castle:pavement_brick", {
+		description = "Pavement Brick",
+		tiles = {"castle_pavement_brick.png"},
+		groups = {cracky=2, not_in_creative_inventory=1},
+		sounds = default.node_sound_stone_defaults(),
+		sunlight_propagates = true,
+	})
+
+else
+	stairs.register_stair_and_slab("dungeon_stone", "castle:dungeon_stone",
+		{cracky=2},
+		{"castle_dungeon_stone.png"},
+		"Dungeon Stone Stair",
+		"Dungeon Stone Slab",
+		default.node_sound_stone_defaults()
+	)
+
+	stairs.register_stair_and_slab("pavement_brick", "castle:pavement_brick",
+		{cracky=2},
+		{"castle_pavement_brick.png"},
+		"Castle Pavement Stair",
+		"Castle Pavement Slab",
+		default.node_sound_stone_defaults()
+	)
+end
