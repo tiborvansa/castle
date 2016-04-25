@@ -15,6 +15,7 @@ minetest.register_node("castle:stonewall", {
 	paramtype = "light",
 	drop = "castle:stonewall",
 	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("castle:rubble", {
@@ -23,6 +24,7 @@ minetest.register_node("castle:rubble", {
 	tiles = {"castle_rubble.png"},
 	paramtype = "light",
 	groups = {crumbly=3,falling_node=1},
+	sounds = default.node_sound_gravel_defaults(),
 })
 
 minetest.register_craft({
@@ -60,6 +62,7 @@ minetest.register_node("castle:stonewall_corner", {
 			"castle_stonewall.png",
 			"castle_corner_stonewall2.png"},
 	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_craft({
@@ -83,6 +86,7 @@ minetest.register_node("castle:roofslate", {
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
 	groups = {cracky=3,attached_node=1},
+	sounds = default.node_sound_glass_defaults(),
 })
 
 minetest.register_node("castle:hides", {
@@ -379,7 +383,7 @@ if minetest.get_modpath("moreblocks") then
 		description = "Rubble",
 		tiles = {"castle_rubble.png"},
 		groups = {cracky=3, not_in_creative_inventory=1},
-		sounds = default.node_sound_stone_defaults(),
+		sounds = default.node_sound_gravel_defaults(),
 		sunlight_propagates = true,
 	})
 
