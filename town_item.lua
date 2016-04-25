@@ -158,14 +158,12 @@ minetest.register_abm( {
 	end
 } )
 
-
 local function has_locked_chest_privilege(meta, player)
 	if player:get_player_name() ~= meta:get_string("owner") then
 		return false
 	end
 	return true
 end
-
 
 minetest.register_craft({
 	output = "castle:workbench",
@@ -236,13 +234,6 @@ minetest.register_node("castle:crate", {
 				" takes stuff from crate at "..minetest.pos_to_string(pos))
 	end,
 })
-
-local function has_locked_chest_privilege(meta, player)
-	if player:get_player_name() ~= meta:get_string("owner") then
-		return false
-	end
-	return true
-end
 
 minetest.register_craft({
 	output = "castle:crate",
