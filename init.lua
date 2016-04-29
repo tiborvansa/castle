@@ -158,31 +158,6 @@ if not (mod_building_blocks or mod_streets) then
 
 end
 
-minetest.register_craft({
-	output = "castle:stairs 4",
-	recipe = {
-		{"castle:stonewall","",""},
-		{"castle:stonewall","castle:stonewall",""},
-		{"castle:stonewall","castle:stonewall","castle:stonewall"},
-	}
-})
-
-minetest.register_craft({
-	output = "stairs:stair_stonewall 4",
-	recipe = {
-		{"","","castle:stonewall"},
-		{"","castle:stonewall","castle:stonewall"},
-		{"castle:stonewall","castle:stonewall","castle:stonewall"},
-	}
-})
-
-minetest.register_craft({
-	output = "stairs:slab_stonewall 6",
-	recipe = {
-		{"castle:stonewall","castle:stonewall","castle:stonewall"},
-	}
-})
-
 doors.register("castle:oak_door", {
 	tiles = {{ name = "castle_door_oak.png", backface_culling = true }},
 	description = "Oak Door",
