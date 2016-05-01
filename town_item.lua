@@ -13,6 +13,7 @@ minetest.register_node("castle:anvil",{
 	description = "Anvil",
 	tiles = {"castle_steel.png"},
 	groups = {cracky=2,falling_node=1},
+	sounds = default.node_sound_stone_defaults(),
 	paramtype = "light",
 	paramtype2 = "facedir",
 	node_box = {
@@ -42,6 +43,7 @@ minetest.register_node("castle:workbench",{
 	paramtype2 = "facedir",
 	paramtype = "light",
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2},
+	sounds = default.node_sound_wood_defaults(),
 	drawtype = "normal",
 	on_construct = function ( pos )
 		local meta = minetest.get_meta( pos )
@@ -180,6 +182,7 @@ minetest.register_node("castle:dungeon_stone", {
 	tiles = {"castle_dungeon_stone.png"},
 	groups = {cracky=2},
 	paramtype = "light",
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_craft({
@@ -202,6 +205,7 @@ minetest.register_node("castle:crate", {
 	drawtype = "normal",
 	tiles = {"castle_crate_top.png","castle_crate_top.png","castle_crate.png","castle_crate.png","castle_crate.png","castle_crate.png"},
 	groups = {choppy=3},
+	sounds = default.node_sound_wood_defaults(),
 	paramtype = "light",
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -248,6 +252,7 @@ minetest.register_node("castle:bound_straw", {
 	drawtype = "normal",
 	tiles = {"castle_straw_bale.png"},
 	groups = {choppy=4, flammable=1, oddly_breakable_by_hand=3},
+	sounds = default.node_sound_leaves_defaults(),
 	paramtype = "light",
 })
 
@@ -264,6 +269,7 @@ minetest.register_node("castle:pavement_brick", {
 	tiles = {"castle_pavement_brick.png"},
 	groups = {cracky=2},
 	paramtype = "light",
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_craft({
@@ -281,6 +287,7 @@ minetest.register_node("castle:light",{
 	light_source = 14,
 	tiles = {"castle_street_light.png"},
 	groups = {cracky=2},
+	sounds = default.node_sound_glass_defaults(),
 	paramtype = "light",
 })
 
