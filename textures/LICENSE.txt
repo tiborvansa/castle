@@ -19,7 +19,7 @@ License Textures: Kilbith - WTFPL
 
 --------------------------------------------
 
-License Textures: Philipner -  ???
+License Textures: Philipner -  CC-BY-SA 3.0
 
 -castle_chandelier.png
 -castle_chandelier_chain.png
